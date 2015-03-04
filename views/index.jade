@@ -5,13 +5,17 @@ block content
     h2= title
     p Hello #{user.name} , Welcome to #{title} .
     div.label-success You can park at #{title} now!
-    p |
-    | 一年半前，曾离过两次婚的萨拉在网上遇到了自称叫克里斯·
-    |奥尔森的男子。尽管这名神秘男子的口音总是变化无常，而且声称经常流转各国并不断要求萨拉给他汇钱，
-    |但萨拉仍坚称，她有95%的把握奥尔森说的都是实话。.
+    p.
+      一年半前，曾离过两次婚的萨拉在网上遇到了自称叫克里斯·
+        奥尔森的男子。尽管这名神秘男子的口音总是变化无常，而且声称经常流转各国并不断要求萨拉给他汇钱，
+        但萨拉仍坚称，她有95%的把握奥尔森说的都是实话。.
     a(href='www.qq.com') QQ
     br
     input.input-append(value = user.email)
+    br
+    label. Username: input(name='user[name]')
+        pig pig
+    .small abc abc
 
 block extendJs
 
