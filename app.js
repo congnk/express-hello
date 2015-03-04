@@ -24,9 +24,16 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
+//app.use('/users', users);
 app.use('/blog', blog);
 //app.use("/public", express.static( '/opt/public'));
+
+
+app.get('/users', users.list);
+app.get('/users/:id', users.get);
+app.delete('/users/:id', users.delete);
+app.post('/users', users.add);
+app.put('/users/:id', users.update);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -58,13 +65,5 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-
-//这几行演示了一个新添服务器的方法。已验证过的。
-var app2 = express(); 
-    app2.get('/', function(req, res){ 
-	   res.send('hello world\n'); 
-	          console.log('hello world');
-       }); 
-    app2.listen('8808');
 
 module.exports = app;
