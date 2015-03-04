@@ -8,4 +8,14 @@ router.get('/', function(req, res, next) {
   });
 });
 
+var fs = require('fs');
+router.get('/index.html', function(req, res, next) {
+    fs.readFile('html/index.html', 'utf-8', function (err, data) {
+        if (err) {
+            res.send(err);
+            console.log(err);
+        }
+        res.send(data);
+    });
+});
 module.exports = router;

@@ -25,12 +25,12 @@ router.update = function(req, res){
   user_list[req.body.id] = req.body;  
   res.send({status:"success", message:"update user success"});  
   console.log(user_list);
-};  
+};
   
   
-router.add = function(req, res){  
+router.add = function(req, res){
   res.setHeader('Content-Type', 'application/json;charset=utf-8');  
-  console.log(req.body);  
+  console.log(req.body);
   user_list[req.body.id] = req.body;  
   res.send({status:"success", message:"add user success"});  
   console.log(user_list);
