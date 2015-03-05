@@ -2,12 +2,29 @@ extends layout
 
 block content
 
-    h2= title
-    p Hello #{user.name} , Welcome to #{title} .
-    div.label-success You can park at #{title} now!
-
-
-    label This line means the end !
+    a(name='about')
+    .intro-header
+        .container
+            .row
+                .col-lg-12
+                    .intro-message
+                        h1 欢迎页面
+                        h3 Bootstrap 模板测试项目
+                        hr.intro-divider
+                        h4 您可以：
+                        ul.list-inline.intro-social-buttons
+                            li
+                                a.btn.btn-default.btn-lg(href='/login/login.html')
+                                    i.fa.fa-space-shuttle.fa-fw
+                                    span.network-name 登陆
+                            li
+                                a.btn.btn-default.btn-lg(href='/login/register.html')
+                                    i.fa.fa-user.fa-fw
+                                    span.network-name 注册
+                            li
+                                a.btn.btn-default.btn-lg(href='#')
+                                    i.fa.fa-arrow-right.fa-fw
+                                    span.network-name 浏览进入
 
 block extendJs
     script(type='text/javascript').

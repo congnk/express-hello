@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: '四川成都高新区' ,
+  res.render('index', { title: 'Bootstrap 模板测试' ,
     user:{name:"张三",email:"zhangsan@163.com"}
   });
 });
