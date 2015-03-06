@@ -2,30 +2,29 @@ extends layout
 
 block content
     // Header
-    a(name='about')
-    .intro-header
+
+    a(name='contact')
+    .banner
       .container
         .row
-          .col-lg-12
-            .intro-message
-              h1 Landing Page
-              h3 A Template by Start Bootstrap
-              hr.intro-divider
-              ul.list-inline.intro-social-buttons
-                li
-                  a.btn.btn-default.btn-lg(href='https://twitter.com/SBootstrap')
-                    i.fa.fa-twitter.fa-fw
-                    span.network-name Twitter
-                li
-                  a.btn.btn-default.btn-lg(href='https://github.com/IronSummitMedia/startbootstrap')
-                    i.fa.fa-github.fa-fw
-                    span.network-name Github
-                li
-                  a.btn.btn-default.btn-lg(href='#')
-                    i.fa.fa-linkedin.fa-fw
-                    span.network-name Linkedin
+          .col-lg-6
+            h2 Connect to Start Bootstrap:
+          .col-lg-6
+            ul.list-inline.banner-social-buttons
+              li
+                a.btn.btn-default.btn-lg(href='https://twitter.com/SBootstrap')
+                  i.fa.fa-twitter.fa-fw
+                  span.network-name Twitter
+              li
+                a.btn.btn-default.btn-lg(href='https://github.com/IronSummitMedia/startbootstrap')
+                  i.fa.fa-github.fa-fw
+                  span.network-name Github
+              li
+                a.btn.btn-default.btn-lg(href='#')
+                  i.fa.fa-linkedin.fa-fw
+                  span.network-name Linkedin
       // /.container
-    // /.intro-header
+
     // Page Content
     a(name='services')
     .content-section-a
@@ -83,28 +82,7 @@ block content
           .col-lg-5.col-lg-offset-2.col-sm-6
             img.img-responsive(src='/images/phones.png', alt='')
       // /.container
-    // /.content-section-a
-    a(name='contact')
-    .banner
-      .container
-        .row
-          .col-lg-6
-            h2 Connect to Start Bootstrap:
-          .col-lg-6
-            ul.list-inline.banner-social-buttons
-              li
-                a.btn.btn-default.btn-lg(href='https://twitter.com/SBootstrap')
-                  i.fa.fa-twitter.fa-fw
-                  span.network-name Twitter
-              li
-                a.btn.btn-default.btn-lg(href='https://github.com/IronSummitMedia/startbootstrap')
-                  i.fa.fa-github.fa-fw
-                  span.network-name Github
-              li
-                a.btn.btn-default.btn-lg(href='#')
-                  i.fa.fa-linkedin.fa-fw
-                  span.network-name Linkedin
-      // /.container
+
 
 block extendJs
     script(type='text/javascript').

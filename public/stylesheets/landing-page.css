@@ -11,15 +11,16 @@ html {
 }
 
 body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 700;
+h1,h2,h3,h4,h5,h6 {
+    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif,"Microsoft Yahei", "微软雅黑";
+    font-weight: 600;
+    color:#505458
 }
+/*h1, h2, h3, h4, h5, h6 {
+	font-family: 'Open Sans', "Microsoft Yahei", "微软雅黑";
+	font-weight: 300;
+	color:#505458
+}*/
 
 .topnav {
     font-size: 14px; 
@@ -37,6 +38,13 @@ h6 {
     color: #f8f8f8;
     background: url(/images/intro-bg.jpg) no-repeat center center;
     background-size: contain;
+}
+
+.main-content {
+    padding-top: 50px;     padding-bottom: 50px;
+    text-align: left;
+    color: #435239;
+    background-color: #F2F9F4;//临时的
 }
 
 .intro-message {

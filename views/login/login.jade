@@ -1,30 +1,32 @@
 extends ../layout
 block content
-    div.
-        <div id="login" ng-controller="login">
-          <form class="form-horizontal">
-            <div class="title control-group">
-              <label class="control-label" for="inputEmail">Login</label>
-            </div>
-            <div class="control-group">
-              <label class="control-label" for="inputEmail">Email</label>
-              <div class="controls">
-                <input type="text" id="inputEmail" placeholder="Email" ng-model="login.email">
-              </div>
-            </div>
-            <div class="control-group">
-              <label class="control-label" for="inputPassword">Password</label>
-              <div class="controls">
-                <input type="password" id="inputPassword" placeholder="Password" ng-model="login.password">
-              </div>
-            </div>
-            <div class="control-group">
-              <div class="controls">
-                <label class="checkbox">
-                  <input type="checkbox"> Remember me
-                </label>
-                <button type="button" class="btn btn-success" ng-click="login.submit()">Sign in</button>
-              </div>
-            </div>
-          </form>
-        </div>
+    form.form-horizontal
+        .title.control-group.row.page-header
+            .col-md-offset-3
+                h2 English 中文
+        .form-group.row
+            label.col-md-3.control-label(for='inputEmail') 邮箱：
+            .col-md-4.controls
+                input.form-control#inputEmail(type='text', placeholder='您的邮箱', ng-model='login.email')
+        .form-group.row
+            label.col-md-3.control-label(for='inputPassword') 密码：
+            .col-md-4.controls
+                input.form-control#inputPassword(type='password', placeholder='请输入密码')
+        .form-group.row
+            .col-md-3
+            label.checkbox.col-md-2
+                  input(type='checkbox')
+                  |  记住邮箱
+            label.control-label.col-md-2
+                    a(href='register.html') 没有账号？
+        .form-group.row
+            .controls.col-md-4.col-md-offset-3
+                button.btn.btn-success.col-md-12.col(type='button') 确定
+
+
+
+block extendJs
+    script(type='text/javascript').
+        $("input").on("click", function () {
+            console.log("点击了input 标签");
+        });
