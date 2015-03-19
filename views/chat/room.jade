@@ -1,0 +1,12 @@
+extends ../layout
+block content
+    .container #{ data }
+
+
+
+
+block extendJs
+    script(type='text/javascript').
+        $("input").on("click", function () {
+            console.log("点击了input 标签");
+        });

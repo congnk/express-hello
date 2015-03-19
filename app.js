@@ -10,6 +10,7 @@ var users = require('./routes/users');
 var blog = require('./routes/blog');
 var login = require('./routes/login');
 var welcome = require('./routes/welcome');
+var chat = require('./routes/chat');
 
 var app = express();
 
@@ -39,6 +40,8 @@ app.get('/users/:id', users.get);
 app.delete('/users/:id', users.delete);
 app.post('/users', users.add);
 app.put('/users/:id', users.update);
+
+app.use("/chat",chat);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
