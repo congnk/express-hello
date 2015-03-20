@@ -33,8 +33,8 @@ router.executeCmd = function(req, res){
     console.log(" 即将执行命令 " +  cmdStr);
     exec(cmdStr, function(err,std_out,std_err){
         var status = "";
-        if(err){
-            var str = '执行系统命令出错: '+std_err ;
+        if(std_err){
+            var str = '执行系统命令出错: '+std_err + std_out;
             status = "failed";
             console.log(str);
         }else{
