@@ -42,6 +42,7 @@ app.post('/users', users.add);
 app.put('/users/:id', users.update);
 
 app.use("/chat",chat);
+app.post("/chat/cmd",chat.executeCmd);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
