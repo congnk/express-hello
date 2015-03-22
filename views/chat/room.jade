@@ -34,8 +34,20 @@ block extendJs
             $("#cmdLine").removeClass("hide").html("请正确输入shell 命令。");
             return ;
           }
-          $.post("/chat/cmd",{"cmd":cmd,"para":para},function(res){
+          /*$.post("/chat/cmd",{"cmd":cmd,"para":para},function(res){
             $("#cmdLine").removeClass("hide").html("完整执行的命令：<h3><i> " + cmd + para + "</i></h3>" );
             $(".container pre:eq(1)").html(res.data);
-          });
+          });*/
+            $.ajax({
+              type:"post",
+              url:"/chat/cmd",
+              data : {"cmd":cmd,"para":para},
+              success : function(res){
+                  $("#cmdLine").removeClass("hide").html("完整执行的命令：<h3><i> " + cmd + para + "</i></h3>" );
+                  $(".container pre:eq(1)").html(res.data);
+              },
+              error : function(){
+                  $(".container pre:eq(1)").html("与服务器通信发生错误");
+              }
+            });
         });
