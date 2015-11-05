@@ -13,5 +13,10 @@ exports.users = {
     id:3,
     name:"user3",
     password:"password3"
+  },
+  "4":{
+    id:4,
+    name:"user4",
+    password:"password4"
   }
 }
