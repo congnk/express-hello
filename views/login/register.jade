@@ -1,0 +1,66 @@
+extends ../layout
+block content
+  .title.control-group.row.page-header
+    .col-md-offset-3
+      h2 注册您的账号
+  .col-md-9
+    .panel.panel-info
+      .panel-heading
+        h3.panel-title 账号注册
+      .panel-body#main-panel
+        form.form-horizontal
+          .form-group.row.has-warning
+            label.col-md-3.control-label(for='inputEmail') 邮箱：
+            .col-md-5.controls
+              .input-group
+                input.form-control#inputEmail(type='text', placeholder='您的邮箱', ng-model='login.email',aria-label="false")
+                .input-group-btn
+                  button.btn.btn-default.dropdown-toggle#domain-btn(type='button', data-toggle='dropdown', aria-expanded='false')
+                    b qq.com
+                    span.caret
+                  ul.dropdown-menu.dropdown-menu-right(role='menu')
+                    li
+                      a(href='#') qq.com
+                    li
+                      a(href='#') 163.com
+                    li
+                      a(href='#') sohu.om
+                    li.divider
+                    li
+                      a(href='#') 其他
+
+          .form-group.row
+            label.col-md-3.control-label(for='inputPassword') 密码：
+            .col-md-5.controls
+              input.form-control#inputPassword(type='password', placeholder='请输入密码')
+          .form-group.row
+            label.col-md-3.control-label(for='inputPassword') 确认密码：
+            .col-md-5.controls
+                input.form-control#againPassword(type='password', placeholder='再次输入密码')
+          .form-group.row
+            .controls.col-md-3.col-md-offset-3
+              button.btn.btn-success.col-md-5(type='button') 确定
+  .col-md-3
+    .panel.panel-info
+      .panel-heading
+        h3.panel-title 其他操作
+      .panel-body#other-panel
+        | 已有账号？
+        button.btn.btn-sm.btn-primary#goLogin(type='button') 点击登录
+
+
+
+block extendJs
+  script(type='text/javascript').
+    $(function() {
+      $("#other-panel").css({"height":$("#main-panel").css("height") }) ;
+      $("#goLogin").on("click", function () {
+        location.href="login.html";
+      });
+
+      $("#domain-btn").next("ul").find("li a").on("click",function(e){
+        e.preventDefault() ;
+        console.log(this.innerHTML);
+        $("#domain-btn").find("b").html( this.innerHTML );
+      });
+    });

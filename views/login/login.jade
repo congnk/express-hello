@@ -1,0 +1,37 @@
+extends ../layout
+block content
+    form.form-horizontal
+        .title.control-group.row.page-header
+            .col-md-offset-3
+                h2 欢迎登陆Bootstrap测试网站
+        .row
+            .col-md-3
+            .col-md-4
+                .form-group.row
+                    //label.col-md-3.control-label(for='inputEmail') 邮箱：
+                    .controls
+                      .input-group
+                        input.form-control#inputEmail(type='text', placeholder='登陆账号是您的邮箱', ng-model='login.email')
+                        span.input-group-addon  @qq.com
+                .form-group.row
+                    //label.col-md-3.control-label(for='inputPassword') 密码：
+                    .controls
+                        input.form-control#inputPassword(type='password', placeholder='本网站密码')
+                .form-group.row
+                    label.checkbox.col-md-4
+                          input(type='checkbox')
+                          |  记住邮箱
+                    label.control-label.col-md-7
+                            a(href='register.html') 没有账号？
+                .form-group.row
+                    .controls
+                        button.btn.btn-success.col-md-12.col(type='button') 确定
+            //.col-md-3
+
+
+
+block extendJs
+    script(type='text/javascript').
+        $("input").on("click", function () {
+            console.log("点击了input 标签");
+        });

@@ -1,0 +1,53 @@
+extends ../layout
+block content
+  .container
+    .col-md-9
+      p free -m
+      pre.bg-info #{data}
+      p 自定义系统命令
+
+      .form-horizontal
+        .form-group.row
+          .col-md-9.controls
+            .input-group
+              span.input-group-addon #
+              input.form-control#cmdIn(type='text', placeholder='请输入命令', aria-describedby='basic-addon1')
+        .form-group.row
+          .col-md-9.controls
+            input.form-control#paraIn(type='text', placeholder="附加参数")
+        .form-group.row
+          .col-md-4
+            button.btn.btn-success.col-md-8#sendBtn(type='button') 发送命令
+      div
+        .alert.alert-warning.hide#cmdLine(role=alert) init
+        pre.bg-info 命令执行结果将在此显示
+
+
+
+
+block extendJs
+    script(type='text/javascript').
+        $("#sendBtn").on("click", function () {
+          var cmd = $("#cmdIn").val();
+          var para = $("#paraIn").val();
+          if(cmd.length + para.length < 1 ){
+            $("#cmdLine").removeClass("hide").html("请正确输入shell 命令。");
+            return ;
+          }
+          /*$.post("/chat/cmd",{"cmd":cmd,"para":para},function(res){
+            $("#cmdLine").removeClass("hide").html("完整执行的命令：<h3><i> " + cmd + para + "</i></h3>" );
+            $(".container pre:eq(1)").html(res.data);
+          });*/
+            $.ajax({
+              type:"post",
+              url:"/chat/cmd",
+              data : {"cmd":cmd,"para":para},
+              success : function(res){
+                  $("#cmdLine").removeClass("hide").html("完整执行的命令：<h3><i> " + cmd + para + "</i></h3>" );
+                  $(".container pre:eq(1)").html(res.data);
+              },
+              error : function(){
+                  $(".container pre:eq(1)").html("与服务器通信发生错误");
+              }
+            });
+        });
